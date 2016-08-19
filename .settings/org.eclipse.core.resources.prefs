@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//blog/admin.py=utf-8
 encoding//blog/models.py=utf-8
+encoding//blog/views.py=utf-8
