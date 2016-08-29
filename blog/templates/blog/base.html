@@ -1,7 +1,12 @@
 {% load staticfiles %}
-<html>
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
 <head>
 <title>kdsplus blog</title>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="No-Cache">
+<meta http-equiv="Pragma" content="No-Cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -12,18 +17,22 @@
 
 <div class="page-header">
     {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" title='등록'></span></a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit" title='게시전목록'></span></a>
+        <p class="top-menu">Hello {{ user.username }}<small>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'logout' %}"><span class="glyphicon glyphicon-lock" title='logout'></span></a></small></p>
+    {% else %}
+        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock" title='login'></span></a>
     {% endif %}
-	<h1><a href="/">kdsplus Blog</a></h1>
+    <h1><a href="{% url 'post_list' %}">kdsplus</a></h1>
 </div>
 
 <div class="content container">
-	<div class="row">
-		<div class="col-md-8">
-		{% block content %}
-		{% endblock %}
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-md-8">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
 </div>
 
 </body>
