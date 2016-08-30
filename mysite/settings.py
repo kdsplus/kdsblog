@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,6 +83,18 @@ DATABASES = {
     }
 }
 
+'''
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'mysite', # database name
+    'USER': 'kdsplus',
+    'PASSWORD': 'qwer1234',
+    'HOST': 'localhost',
+    'PORT': '5432',
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
